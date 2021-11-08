@@ -124,7 +124,7 @@ def ecPoint(a):
 
 P = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F
 N = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141
-G = (55066263022277343669578718895168534326250603453777594175500187360389116729240, 32670510020758816978083085130507043184471273380659243275938904335757337482424)
+G = (0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798, 0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8)
 p = (0x7ebc1070fc6d694ad9128ce3dfb800e10035463d60016b5f9641b9e133f02222, 0xe5702e11e1e5763109659bee4b75fc0e4723cf2d21f3ac9ee23bdc77ab796f81) # negated evil key.
 
 def rrr(i):
@@ -132,14 +132,20 @@ def rrr(i):
 	hexstr = tmpstr.replace('0x','').replace('L','').replace(' ','').zfill(64)
 	return hexstr
 
-def forge(c, a=100): # Create a forged'ECDSA' (hashless) signature, thanks to ???
+def forge(c, a=-1): # Create a forged'ECDSA' (hashless) signature, thanks to ???
   # set a to something other than -1 to be less obvious
     a = a % N
     g = mul(G,c)
-    R = add(g, (mul(p,a)))
-    s = (R[0] // a) % N
-    m = (c * (R[0]//a)% N)
+    r = mul(p,a)
+    R = add(g, r)
+    s = ((R[0] * modInv(a,N)) % N)
+    m = ((c * R[0] * modInv(a,N)) % N)
     r = (R[0])
+    print(a)
+    print(g)
+    print(r)
+    print(R)
     print("1111",",",(rrr(m)),",",(rrr(r)),",",(rrr(s)),",","0000") # 4 breakingecdsawithlll by daedalus m is message, r,s is signature
-for c in range(1,10000):
+for c in range(1,5):
     forge(c)
+#this is a work in progress
