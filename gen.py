@@ -138,7 +138,7 @@ def forge(c, a=100): # Create a forged'ECDSA' (hashless) signature, thanks to ??
     g = mul(G,c)
     R = add(g, (mul(p,a)))
     s = (R[0] // a) % N
-    m = ((R[0]//a % N) * c)
+    m = (c * (R[0]//a)% N)
     r = (R[0])
     print("1111",",",(rrr(m)),",",(rrr(r)),",",(rrr(s)),",","0000") # 4 breakingecdsawithlll by daedalus m is message, r,s is signature
 for c in range(1,10000):
