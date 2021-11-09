@@ -1,4 +1,5 @@
-# breakecdsa
+# discrete
+
 
 1.python3 gen.py
 
