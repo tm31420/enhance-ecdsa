@@ -8,15 +8,13 @@
 
 4.sage -sh
 
-5.python2 crack.py 1jut.csv 240 4999 1JUToCyRL5UwgeucjnFAagKs4v1YqhjT1d
+5.python2 crack.py 1jut.csv 240 4999 "address"
 
 6. 240 is the nonce bits
 
 7. 4999 is the number of signatures
 
 8. 1jut.csv is the file
-
-9. 1JUToCyRL5UwgeucjnFAagKs4v1YqhjT1d is the evil wallet
 
 #work in progress
 
