@@ -1,3 +1,4 @@
+import random
 def modInv(n, p):
     return pow(n, p - 2, p)
 
@@ -146,6 +147,9 @@ def forge(c, a=-1): # Create a forged'ECDSA' (hashless) signature, thanks to ???
     print(r)
     print(R)
     print("1111",",",(rrr(m)),",",(rrr(r)),",",(rrr(s)),",","0000") # 4 breakingecdsawithlll by daedalus m is message, r,s is signature
-for c in range(1,5):
-    forge(c)
+count = 0
+while count < 1000:
+    a = random.randint(1,2**256)
+    c = random.randint(1,2**256)
+    forge(c,a)
 #this is a work in progress
