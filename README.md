@@ -17,6 +17,12 @@
 
 8. 1jut.csv is the file
 
+9. python3 breaker.py duprs.csv address
+
+10. email me at tm31420@gmail.com if you want the method of 
+
+creating duplicate r sigs. I have a javascript script for that purpose.
+
 #work in progress
 
 i had to use python 2.7 to get crack.py working on my pc
