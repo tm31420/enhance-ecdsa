@@ -19,9 +19,7 @@
 
 9. python3 breaker.py duprs.csv address
 
-10. email me at tm31420@gmail.com if you want the method of 
-
-creating duplicate r sigs. I have a javascript script for that purpose.
+10. email me at tm31420@gmail.com for more info.
 
 #work in progress
 
